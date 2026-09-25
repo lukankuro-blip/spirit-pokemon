@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+fetch("pokemon.txt")
+  .then(response => response.text())
+  .then(text => {
+    const pokemon = text
+      .split(/\r?\n/)
+      .map(x => x.trim())
+      .filter(x => x.length > 0);
+
+    const randomPokemon =
+      pokemon[Math.floor(Math.random() * pokemon.length)];
+
+    document.body.innerText = randomPokemon;
+  });
+</script>
+</body>
+</html>
